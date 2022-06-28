@@ -16,13 +16,17 @@ namespace FirstExercise
             Console.Write("Haverá depósito inicial(s/n)?  ");
             char opt = char.Parse(Console.ReadLine());
 
-            Conta c1 = new Conta(id, nome);
+            Conta c1;
 
             if(opt == 's')
             {
                 Console.Write("Entre com o valor do depósito inicial: ");
                 double deposito = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 c1 = new Conta(id, nome, deposito);
+            }
+            else
+            {
+                c1 = new Conta(id, nome);
             }
 
             Console.WriteLine("\nDados da conta: ");

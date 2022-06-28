@@ -18,9 +18,9 @@ namespace FirstExercise
             Nome = nome;
         }
 
-        public Conta(int id, String nome, double saldo): this(id, nome)
+        public Conta(int id, String nome, double depositoInicial): this(id, nome)
         {
-            Saldo = saldo;
+            Deposito(depositoInicial);
         }
 
         public void Deposito(double deposito)
@@ -35,7 +35,7 @@ namespace FirstExercise
 
         public override string ToString()
         {
-            return "Conta: " + Id + ", Titular: " + Nome + ", Saldo: " + Saldo.ToString("F2", CultureInfo.InvariantCulture);
+            return "Conta: " + Id + ", Titular: " + Nome + ", Saldo: $ " + Saldo.ToString("F2", CultureInfo.InvariantCulture);
         }
 
 
