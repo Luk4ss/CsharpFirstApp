@@ -7,47 +7,32 @@ namespace FirstExercise
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite o número da conta: ");
-            int id = int.Parse(Console.ReadLine());
-         
-            Console.Write("Entre com o titular da conta: ");
-            String nome = Console.ReadLine();
-            
-            Console.Write("Haverá depósito inicial(s/n)?  ");
-            char opt = char.Parse(Console.ReadLine());
+            Console.Write("How many rooms will be rented?: ");
+            int n = int.Parse(Console.ReadLine());
 
-            Conta c1;
+            Reserva[] quarto = new Reserva[10];
 
-            if(opt == 's')
+            for(int i = 0; i < n; i++)
             {
-                Console.Write("Entre com o valor do depósito inicial: ");
-                double deposito = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                c1 = new Conta(id, nome, deposito);
-            }
-            else
-            {
-                c1 = new Conta(id, nome);
+                Console.WriteLine("\nRent #" + (i+1) +":");
+                Console.Write("Name: ");
+                String name = Console.ReadLine();
+                Console.Write("Email: ");
+                String email = Console.ReadLine();
+                Console.Write("Room: ");
+                int id = int.Parse(Console.ReadLine());
+                quarto[id] = new Reserva {Name = name, Email = email, Room = id};
             }
 
-            Console.WriteLine("\nDados da conta: ");
-            Console.WriteLine(c1);
-
-            
-            Console.Write("\nEntre com o valor para depósito: ");
-            c1.Deposito(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
-
-            Console.WriteLine("\nDados da conta atualizados: ");
-            Console.WriteLine(c1);
-
-            Console.Write("\nEntre com o valor para saque: ");
-            c1.Saque(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
-
-            Console.WriteLine("\nDados da conta atualizados: ");
-            Console.WriteLine(c1);
-
-
-
-
+            Console.WriteLine("\nBusy rooms: ");
+            for(int i = 0; i < 10; i++)
+            {
+                   if(quarto[i] != null)
+                    {
+                    Console.WriteLine(quarto[i]);
+                    }
+            }
+    
         }
     }
 }
